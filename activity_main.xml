@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvConnStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="conectado:esp32..."
+            android:textColor="@color/text_muted"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="OTTO DIY"
+            android:textColor="@color/purple_accent"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvBattery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="bateria: --%"
+            android:textColor="@color/text_white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Content area, one screen visible at a time -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- ===== PANTALLA: DATOS ===== -->
+        <LinearLayout
+            android:id="@+id/screenDatos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DATOS"
+                android:textColor="@color/blue_accent"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:background="@color/card_bg"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Temperatura: -- C"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvHum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Humedad: -- %"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvDist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Distancia: -- cm"
+                    android:textColor="@color/blue_accent"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvRobotState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Estado: --"
+                    android:textColor="@color/text_muted"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ===== PANTALLA: BLUETOOTH ===== -->
+        <LinearLayout
+            android:id="@+id/screenBt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONECTAR"
+                android:textColor="@color/blue_accent"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnScan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/purple_accent"
+                android:text="Ver dispositivos emparejados" />
+
+            <ListView
+                android:id="@+id/lvDevices"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+
+        <!-- ===== PANTALLA: CONTROLADOR ===== -->
+        <LinearLayout
+            android:id="@+id/screenControl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="CONTROLADOR"
+                android:textColor="@color/blue_accent"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnForward"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/card_bg"
+                android:text="Adelante"
+                android:textColor="@color/text_white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnLeft"
+                    android:layout_width="120dp"
+                    android:layout_height="60dp"
+                    android:backgroundTint="@color/card_bg"
+                    android:text="Izquierda"
+                    android:textColor="@color/text_white" />
+
+                <Button
+                    android:id="@+id/btnStop"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/red_error"
+                    android:text="Stop"
+                    android:textColor="@color/text_white" />
+
+                <Button
+                    android:id="@+id/btnRight"
+                    android:layout_width="120dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/card_bg"
+                    android:text="Derecha"
+                    android:textColor="@color/text_white" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/card_bg"
+                android:text="Atras"
+                android:textColor="@color/text_white" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- Bottom navigation (3 tabs) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/card_bg"
+        android:padding="12dp">
+
+        <Button
+            android:id="@+id/navDatos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/purple_accent"
+            android:text="Datos" />
+
+        <Button
+            android:id="@+id/navBt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/bg_dark"
+            android:text="Bluetooth" />
+
+        <Button
+            android:id="@+id/navControl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/bg_dark"
+            android:text="Control" />
+    </LinearLayout>
+
+</LinearLayout>

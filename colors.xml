@@ -1,0 +1,10 @@
+<resources>
+    <color name="bg_dark">#0A0A14</color>
+    <color name="purple_accent">#7B4DFF</color>
+    <color name="blue_accent">#3B8BFF</color>
+    <color name="card_bg">#15152A</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_muted">#9A98B5</color>
+    <color name="green_ok">#3ED17F</color>
+    <color name="red_error">#FF5C5C</color>
+</resources>
